@@ -1,6 +1,6 @@
 # Surreal Estate
 
-A property listings site where you can seearch for and add new properties. 
+A property listings site where you can search for and add new properties. 
 
 # Concepts 
 

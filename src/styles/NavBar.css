@@ -1,0 +1,38 @@
+.navbar {
+  background-color: white;
+  border-bottom: 5px double rgb(57, 236, 227);
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  height: auto;
+}
+
+img {
+  max-width: 6%;
+  height: auto;
+}
+
+.navbar-links {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links-item {
+  margin: 0;
+  display: inline-block;
+  padding-left: 50px;
+  font-size: 2.5vw;
+  padding-top: 10px;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2.5vw;
+  padding-top: 10px;
+  letter-spacing: 3px;
+}

@@ -1,6 +1,11 @@
+/* global styling */
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap");
+
 body {
   margin: 0;
-  font-family: 'IM Fell English SC', serif;
+  background-color: #f6d36f;
+
+  font-family: "IM Fell English SC", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

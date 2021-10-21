@@ -1,11 +1,12 @@
 import '../styles/App.css';
+import NavBar from './NavBar';
 
 function App() {
   return (
     <div className="surreal-estate">
-      <h2>Surreal Estate</h2>
+      <NavBar />
     </div>
   );
-}
+};
 
 export default App;
