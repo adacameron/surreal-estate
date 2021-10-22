@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/NavBar.css'
 import logo from '../assets/logo.png'
-
+import { Link } from 'react-router-dom';
 const NavBar = () => {
 
     return (
@@ -11,11 +11,11 @@ const NavBar = () => {
 
             <ul className="navbar-links">
                 <li className="navbar-links-item">
-                    <a href="http://localhost:3000">View Properties</a>
+                    <Link to="/">View Properties</Link>
                 </li>
 
                 <li className="navbar-links-item">
-                    <a href="http://localhost:3000">Add a Property</a>
+                    <Link to="/add-property">Add a Property</Link>
                 </li>
             </ul>
 
