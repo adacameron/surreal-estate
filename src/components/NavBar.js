@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/NavBar.css'
 import logo from '../assets/logo.png'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const NavBar = () => {
 
     return (
@@ -11,11 +11,11 @@ const NavBar = () => {
 
             <ul className="navbar-links">
                 <li className="navbar-links-item">
-                    <Link to="/">View Properties</Link>
+                    <NavLink to="/">View Properties</NavLink>
                 </li>
 
                 <li className="navbar-links-item">
-                    <Link to="/add-property">Add a Property</Link>
+                    <NavLink to="/add-property">Add a Property</NavLink>
                 </li>
             </ul>
 

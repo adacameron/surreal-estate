@@ -10,11 +10,14 @@ function App() {
     <Router>
     <div className="surreal-estate">
       <NavBar />
-    </div>
+   
     <Switch>
         <Route exact path="/" component={Properties} />
+      
         <Route exact path="/add-property" component={AddProperty} /> 
     </Switch>
+
+    </div>
     </Router>
   );
 };
