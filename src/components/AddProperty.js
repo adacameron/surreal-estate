@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/AddProperty.css'
+import '../styles/AddProperty.scss'
 
 const AddProperty = () => {
     const initialState = {
@@ -31,22 +31,29 @@ const AddProperty = () => {
         <div className="add-property">
             <h1>Add Property</h1>
           
-            <form onSubmit={handleAddProperty}>
+            <form className="add-property__form" onSubmit={handleAddProperty}>
 
                 <div className="add-property__title">
-                    <label htmlFor="title">
+                    <label htmlFor="title">Property title   </label>
                         <input
                             id="title"
                             name="title"
+                            type="text"
                             value={fields.title}
                             onChange={handleFieldChange}
-                            placeholder="Property listing title"
+                            placeholder="E.g. 2 bed flat for sale"
                         />
-                    </label>
+                  
                 </div>
                 <div className="add-property__type">
-                    <label htmlFor="type">Type of property
-                        <select>
+                    <label htmlFor="type">Type of property  </label>
+                        <select 
+                            id="type"
+                            name="type"
+                            type="dropdown"
+                            value={fields.type}
+                            onChange={handleFieldChange}>
+                            
                             <option value="Flat">Flat</option>
                             <option value="Detached">Detached</option>
                             <option value="Semi-Detached">Semi-Detached</option>
@@ -55,47 +62,49 @@ const AddProperty = () => {
                             <option value="Cottage">Cottage</option>
                             <option value="Bungalow">Bungalow</option>
                         </select>
-                    </label>
+                  
                 </div>
 
                 <div className="add-property__bedrooms">
-                    <label htmlFor="bedrooms">Bedrooms
+                    <label htmlFor="bedrooms">Bedrooms </label>
                         <input
                             id="bedrooms"
                             name="bedrooms"
+                            type="text"
                             value={fields.bedrooms}
                             onChange={handleFieldChange}
                             placeholder="Min 1"
                         />
-                    </label>
+                   
                 </div>
                 <div className="add-property__bathrooms">
-                    <label htmlFor="Bathrooms">Bathrooms
+                    <label htmlFor="Bathrooms">Bathrooms </label>
                         <input
-                            id="Bathrooms"
-                            name="Bathrooms"
+                            id="bathrooms"
+                            name="bathrooms"
+                            type="text"
                             value={fields.bathrooms}
                             onChange={handleFieldChange}
                             placeholder="Min 1"
                         />
-                    </label>
+                   
                 </div>
                 <div className="add-property__price">
-                    <label htmlFor="Price">Price
+                    <label htmlFor="Price">Price</label>
                         <input
                             id="price"
                             name="price"
-                            type="number"
-                            min="10,000"
-                            max="10,000,000"
+                            type="text"
+                            // min="10,000"
+                            // max="10,000,000"
                             value={fields.price}
                             onChange={handleFieldChange}
                             placeholder="£"
                         />
-                    </label>
+                 
                 </div>
                 <div className="add-property__email">
-                    <label htmlFor="Email">Email
+                    <label htmlFor="Email">Email</label>
                         <input
                             id="email"
                             name="email"
@@ -104,13 +113,14 @@ const AddProperty = () => {
                             onChange={handleFieldChange}
                             placeholder="user@address.co.uk"
                         />
-                    </label>
+                    
                 </div>
                 <div className="add-property__city">
-                    <label htmlFor="city">City
+                    <label htmlFor="city">City </label>
                         <select
                             id="city"
                             name="city"
+                            type="dropdown"
                             value={fields.city}
                             onChange={handleFieldChange}>
                             <option value="Manchester">Manchester</option>
@@ -118,7 +128,6 @@ const AddProperty = () => {
                             <option value="Sheffield">Sheffield</option>
                             <option value="Liverpool">Liverpool</option>
                         </select>
-                    </label>
                 </div>
                 <div className="add-property__submit">
                     <button type="submit">Add</button>
