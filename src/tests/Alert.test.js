@@ -1,16 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { screen, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Alert from '../components/Alert';
-
 
 describe('Alert component', () => {
     it('displays an error message', () => {
 
-        const alertComponent = render(<Alert message='Server error, try again later!' />)
-
-        const alertMessageNode = alertComponent.getBytext('Server error, try again later!')
+        const { getByText } = render(<Alert message='Server error, try again later!' />);
         
-        expect(alertMessageNode.textContent).toBe('Error!');
-    })
-})
+        expect(getByText(/Error/).textContent).toBe('Error!');
+    });
+
+    it('displays a success message', () => {
+        const { getByText } = render(<Alert message='Success!' success />);
+
+        // passing a prop without assigning a value is equivalent of assigning prop={true}
+        // i.e. <Alert message='Success!' success={true} />
+
+        expect(getByText(/Success/).textContent).toBe('Success!');
+    });
+});
