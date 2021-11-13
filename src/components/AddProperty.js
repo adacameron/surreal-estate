@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/AddProperty.scss'
 import axios from 'axios';
+import Alert from '../components/Alert';
 
 const AddProperty = () => {
     const initialState = {
@@ -11,8 +12,13 @@ const AddProperty = () => {
             bathrooms: '',
             price: '',
             city: 'Manchester',
-            email: ''
-        }
+            email: ''    
+        },
+        alert: {
+            message: '',
+            isSuccess: false,
+          },
+         // added alert as a key in the initial state object
     };
 
     // initial state is the form fields object
@@ -21,10 +27,16 @@ const AddProperty = () => {
 
     // useState hook, setting the initial state using above object
 
+    const [alert, setAlert] = useState(initialState.alert)
+    // useState hook to manage state of the alert
+
     const handleAddProperty = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:3000/api/v1/PropertyListing', {
+        setAlert({ message: '', isSuccess:false });
+        // clears error/success message before each re-submit
+
+        axios.post('http://localhost:4000/api/v1/PropertyListing', {
             title: fields.title,
             type: fields.type,
             bedrooms: fields.bedrooms,
@@ -33,12 +45,18 @@ const AddProperty = () => {
             city: fields.city,
             email: fields.email,
                   })
-                  .then(response => {
-                    console.log(response);
+                  .then((response) => 
+                  setAlert({
+                      message: 'Property Added',
+                      isSuccess: true,
                   })
-                  .catch(error => {
-                    console.log(error);
-                  });
+                  )
+                  .catch((response) => {
+                    setAlert({
+                        message: 'Server error. Please try again later.',
+                        isSuccess: false,
+                    })              
+                });
     };
 
 const handleFieldChange = (event) => {
@@ -52,6 +70,9 @@ return (
         <h1>Add Property</h1>
 
         <form className="add-property__form" onSubmit={handleAddProperty}>
+
+        <Alert message={alert.message} success={alert.isSuccess} />
+
 
             <div className="add-property__title">
                 <label htmlFor="title">
@@ -117,8 +138,6 @@ return (
                     id="price"
                     name="price"
                     type="text"
-                    // min="10,000"
-                    // max="10,000,000"
                     value={fields.price}
                     onChange={handleFieldChange}
                     placeholder="£"
